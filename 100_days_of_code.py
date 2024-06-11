@@ -61,7 +61,7 @@ for i in range(nr_letters):
 
 
 for i in range(nr_symbols):
-    random_symbols.append(numbers.pop())
+    random_symbols.append(symbols.pop())
 
 
 for i in range(nr_numbers):
