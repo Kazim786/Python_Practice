@@ -385,10 +385,46 @@
 
 #Did all by myself
 
+#Travel Log 
 
 
+country = input("Add a country name ") # Add country name
+visits = int(input("How many times have you visited? ")) # Number of visits
+list_of_cities = list(input("List the cities you visited ").lower().split(",")) # create list from formatted string
 
+travel_log = [
+  {
+    "country": "France",
+    "visits": 12,
+    "cities": ["Paris", "Lille", "Dijon"]
+  },
+  {
+    "country": "Germany",
+    "visits": 5,
+    "cities": ["Berlin", "Hamburg", "Stuttgart"]
+  },
+]
+# Do NOT change the code above 👆
 
+# TODO: Write the function that will allow new countries
+# to be added to the travel_log. 
+
+# print(travel_log[0]["country"])
+
+# travel_log.append({"country": "Pakistan", "Visits": 12, "cities": ["Karachi", "Lahore", "Murree"] })
+
+# print(travel_log)
+
+# def add_new_country(a_country=country, the_visits=visits, city_list=list_of_cities):
+    
+#   travel_log.append({"country": a_country, "visits": the_visits, "cities": city_list})
+#   #print(travel_log)
+#   return travel_log
+
+# # Do not change the code below 👇
+# add_new_country(country, visits, list_of_cities)
+# print(f"I've been to {travel_log[2]['country']} {travel_log[2]['visits']} times.")
+# print(f"My favourite city was {travel_log[2]['cities'][0]}.")
 
 
 
