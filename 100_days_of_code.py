@@ -257,87 +257,139 @@
 
 #Caesar Cipher
 
-alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm','n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm','n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+# alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm','n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm','n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 
 
-direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number:\n"))
+# direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+# text = input("Type your message:\n").lower()
+# shift = int(input("Type the shift number:\n"))
 
-#TODO-1: Create a function called 'encrypt' that takes the 'text' and 'shift' as inputs.
+# #TODO-1: Create a function called 'encrypt' that takes the 'text' and 'shift' as inputs.
 
-def encrypt(the_text=text, the_shift=shift):
+# def encrypt(the_text=text, the_shift=shift):
     
-    encrypted = []
-    encrypted_message = []
-    for letter in the_text:
-       encrypted.append(alphabets.index(letter) + the_shift)
+#     encrypted = []
+#     encrypted_message = []
+#     for letter in the_text:
+#        encrypted.append(alphabets.index(letter) + the_shift)
     
-    for numbers in encrypted:
-        encrypted_message.append(alphabets[numbers])
+#     for numbers in encrypted:
+#         encrypted_message.append(alphabets[numbers])
 
-    return "".join(encrypted_message) 
-
-
-secret_message = encrypt(text,shift)
-
-#issue happens with the letter z. 
-
-#I just ended up copying the entire list of the alphabet and adding it back to the end so it circles around. Angela did the same thing 
-
-#Did the whole thing by myself
-
-#TODO-2: Inside the 'encrypt' function, shift each letter of the 'text' forwards in the alphabet by the shift amount and print the encrypted text.  
-    #e.g. 
-    #plain_text = "hello"
-    #shift = 5
-    #cipher_text = "mjqqt"
-    #print output: "The encoded text is mjqqt"
-
-    ##HINT: How do you get the index of an item in a list:
-    #https://stackoverflow.com/questions/176918/finding-the-index-of-an-item-in-a-list
-
-    ##🐛Bug alert: What happens if you try to encode the word 'civilization'?🐛
-
-#TODO-3: Call the encrypt function and pass in the user inputs. You should be able to test the code and encrypt a message. 
-
-#Done
-
-#part 2 decrypt
+#     return "".join(encrypted_message) 
 
 
-#TODO-1: Create a different function called 'decrypt' that takes the 'text' and 'shift' as inputs.
-def decrypt(the_text = secret_message, the_shift = shift):
-    decoded_index = []
-    decoded = []
-    for letters in the_text:
-        decoded_index.append(alphabets.index(letters) - the_shift)
-    for numbers in decoded_index:
-        decoded.append(alphabets[numbers])
+# secret_message = encrypt(text,shift)
 
-    return "".join(decoded)
+# #issue happens with the letter z. 
+
+# #I just ended up copying the entire list of the alphabet and adding it back to the end so it circles around. Angela did the same thing 
+
+# #Did the whole thing by myself
+
+# #TODO-2: Inside the 'encrypt' function, shift each letter of the 'text' forwards in the alphabet by the shift amount and print the encrypted text.  
+#     #e.g. 
+#     #plain_text = "hello"
+#     #shift = 5
+#     #cipher_text = "mjqqt"
+#     #print output: "The encoded text is mjqqt"
+
+#     ##HINT: How do you get the index of an item in a list:
+#     #https://stackoverflow.com/questions/176918/finding-the-index-of-an-item-in-a-list
+
+#     ##🐛Bug alert: What happens if you try to encode the word 'civilization'?🐛
+
+# #TODO-3: Call the encrypt function and pass in the user inputs. You should be able to test the code and encrypt a message. 
+
+# #Done
+
+# #part 2 decrypt
 
 
+# #TODO-1: Create a different function called 'decrypt' that takes the 'text' and 'shift' as inputs.
+# def decrypt(the_text = secret_message, the_shift = shift):
+#     decoded_index = []
+#     decoded = []
+#     for letters in the_text:
+#         decoded_index.append(alphabets.index(letters) - the_shift)
+#     for numbers in decoded_index:
+#         decoded.append(alphabets[numbers])
+
+#     return "".join(decoded)
 
 
 
 
-  #TODO-2: Inside the 'decrypt' function, shift each letter of the 'text' *backwards* in the alphabet by the shift amount and print the decrypted text.  
-  #e.g. 
-  #cipher_text = "mjqqt"
-  #shift = 5
-  #plain_text = "hello"
-  #print output: "The decoded text is hello"
+
+
+#   #TODO-2: Inside the 'decrypt' function, shift each letter of the 'text' *backwards* in the alphabet by the shift amount and print the decrypted text.  
+#   #e.g. 
+#   #cipher_text = "mjqqt"
+#   #shift = 5
+#   #plain_text = "hello"
+#   #print output: "The decoded text is hello"
 
 
 
-def caesar_cipher():
-    if direction == "encode":
-        return encrypt()
-    else:
-        return decrypt()
+# def caesar_cipher():
+#     if direction == "encode":
+#         return encrypt()
+#     else:
+#         return decrypt()
     
-print(caesar_cipher())
+# print(caesar_cipher())
+
+# #Did all by myself
+
+
+
+
+#Day 9
+
+# programming_dictionary = {"Bug": "An error in a program that prevents the program from running as expected.", "Function": "A piece of code that you can easily call over and over again."}
+
+# print(programming_dictionary["Bug"])
+# print(programming_dictionary["Function"])
+
+# programming_dictionary["Bug"] = 'Random change'
+# print(programming_dictionary["Bug"])
+
+
+
+#Create Grading Program - dictionaries
+
+
+# student_scores = {"Harry": 81,
+#                   "Ron": 78,
+#                   "Hermione": 99,
+#                   "Draco": 74,
+#                   "Neville": 62,                  
+#                   }
+
+# student_grades = {}
+
+
+# for student, score in student_scores.items():
+#   if score in range(91, 101):
+#     student_grades[student] = "Outstanding"
+#   elif score in range(81, 91):
+#     student_grades[student] = "Exceeds Expectations"
+#   elif score in range(71, 81):
+#     student_grades[student] = "Acceptable"
+#   elif score in range(0, 71):
+#     student_grades[student] = "Fail"
+
+
+# print(student_grades)
 
 #Did all by myself
+
+
+
+
+
+
+
+
+
