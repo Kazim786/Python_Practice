@@ -388,44 +388,73 @@
 #Travel Log 
 
 
-country = input("Add a country name ") # Add country name
-visits = int(input("How many times have you visited? ")) # Number of visits
-list_of_cities = list(input("List the cities you visited ").lower().split(",")) # create list from formatted string
+# country = input("Add a country name ") # Add country name
+# visits = int(input("How many times have you visited? ")) # Number of visits
+# list_of_cities = list(input("List the cities you visited ").lower().split(",")) # create list from formatted string
 
-travel_log = [
-  {
-    "country": "France",
-    "visits": 12,
-    "cities": ["Paris", "Lille", "Dijon"]
-  },
-  {
-    "country": "Germany",
-    "visits": 5,
-    "cities": ["Berlin", "Hamburg", "Stuttgart"]
-  },
-]
-# Do NOT change the code above 👆
+# travel_log = [
+#   {
+#     "country": "France",
+#     "visits": 12,
+#     "cities": ["Paris", "Lille", "Dijon"]
+#   },
+#   {
+#     "country": "Germany",
+#     "visits": 5,
+#     "cities": ["Berlin", "Hamburg", "Stuttgart"]
+#   },
+# ]
+# # Do NOT change the code above 👆
 
-# TODO: Write the function that will allow new countries
-# to be added to the travel_log. 
+# # TODO: Write the function that will allow new countries
+# # to be added to the travel_log. 
 
-# print(travel_log[0]["country"])
+# # print(travel_log[0]["country"])
 
-# travel_log.append({"country": "Pakistan", "Visits": 12, "cities": ["Karachi", "Lahore", "Murree"] })
+# # travel_log.append({"country": "Pakistan", "Visits": 12, "cities": ["Karachi", "Lahore", "Murree"] })
 
-# print(travel_log)
+# # print(travel_log)
 
-# def add_new_country(a_country=country, the_visits=visits, city_list=list_of_cities):
+# # def add_new_country(a_country=country, the_visits=visits, city_list=list_of_cities):
     
-#   travel_log.append({"country": a_country, "visits": the_visits, "cities": city_list})
-#   #print(travel_log)
-#   return travel_log
+# #   travel_log.append({"country": a_country, "visits": the_visits, "cities": city_list})
+# #   #print(travel_log)
+# #   return travel_log
 
-# # Do not change the code below 👇
-# add_new_country(country, visits, list_of_cities)
-# print(f"I've been to {travel_log[2]['country']} {travel_log[2]['visits']} times.")
-# print(f"My favourite city was {travel_log[2]['cities'][0]}.")
-
-
+# # # Do not change the code below 👇
+# # add_new_country(country, visits, list_of_cities)
+# # print(f"I've been to {travel_log[2]['country']} {travel_log[2]['visits']} times.")
+# # print(f"My favourite city was {travel_log[2]['cities'][0]}.")
 
 
+
+#Silent auction
+
+# from replit import clear
+#HINT: You can call clear() to clear the output in the console.
+
+name = input("What is your name? ")
+bid = int(input("How much do you want to bid? "))
+more_bidders = input("Any more bidders? Say yes or no ").lower()
+
+def silent_auction(the_name=name, the_bid=bid, additional_bidders=more_bidders):
+    auction = []
+    record_of_bid = {the_name:the_bid}
+    auction.append(record_of_bid)
+    print(auction)
+    while additional_bidders == "yes":
+        # auction.append(record_of_bid)
+        # print(auction)
+        #have to find a position to insert clear()
+
+        the_name = input("What is your name? ")
+        the_bid = int(input("How much do you want to bid? "))
+        record_of_bid = {the_name:the_bid}
+        auction.append(record_of_bid)
+        additional_bidders = input("Any more bidders? Say yes or no ").lower()
+         
+    
+    return auction
+    
+
+print(silent_auction())
