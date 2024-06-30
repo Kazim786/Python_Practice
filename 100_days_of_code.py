@@ -433,28 +433,243 @@
 # from replit import clear
 #HINT: You can call clear() to clear the output in the console.
 
-name = input("What is your name? ")
-bid = int(input("How much do you want to bid? "))
-more_bidders = input("Any more bidders? Say yes or no ").lower()
+# name = input("What is your name? ")
+# bid = int(input("How much do you want to bid? "))
+# more_bidders = input("Any more bidders? Say yes or no ").lower()
 
-def silent_auction(the_name=name, the_bid=bid, additional_bidders=more_bidders):
-    auction = []
-    record_of_bid = {the_name:the_bid}
-    auction.append(record_of_bid)
-    print(auction)
-    while additional_bidders == "yes":
-        # auction.append(record_of_bid)
-        # print(auction)
-        #have to find a position to insert clear()
+# def silent_auction(the_name=name, the_bid=bid, additional_bidders=more_bidders):
+#     auction = []
+#     record_of_bid = {the_name:the_bid}
+#     auction.append(record_of_bid)
+#     print(auction)
+#     while additional_bidders == "yes":
+#         # auction.append(record_of_bid)
+#         # print(auction)
+#         #have to find a position to insert clear()
 
-        the_name = input("What is your name? ")
-        the_bid = int(input("How much do you want to bid? "))
-        record_of_bid = {the_name:the_bid}
-        auction.append(record_of_bid)
-        additional_bidders = input("Any more bidders? Say yes or no ").lower()
+#         the_name = input("What is your name? ")
+#         the_bid = int(input("How much do you want to bid? "))
+#         record_of_bid = {the_name:the_bid}
+#         auction.append(record_of_bid)
+#         additional_bidders = input("Any more bidders? Say yes or no ").lower()
          
     
-    return auction
+#     return auction
     
 
-print(silent_auction())
+# print(silent_auction())
+
+
+
+
+
+#Day 16
+
+# class Coffee_options:
+#     def __init__(self, name):
+        
+#       self.name = name
+
+
+
+#Print report
+#Check if resources are sufficient
+#
+
+
+import os
+
+
+
+
+MENU = {
+    "espresso": {
+        "ingredients": {
+            "water": 50,
+            "coffee": 18,
+        },
+        "cost": 1.5,
+    },
+    "latte": {
+        "ingredients": {
+            "water": 200,
+            "milk": 150,
+            "coffee": 24,
+        },
+        "cost": 2.5,
+    },
+    "mocha": {
+        "ingredients": {
+            "water": 250,
+            "milk": 100,
+            "coffee": 24,
+        },
+        "cost": 3.0,
+    }
+}
+
+resources = {
+    "water": 300,
+    "milk": 200,
+    "coffee": 100,
+}
+
+# TODO 1. Print report of all the coffee machine resources
+
+
+prompt = input("What would you like? (espresso, latte, mocha) ").lower()
+
+while prompt != "off":
+
+
+  if prompt == 'report':
+      print(resources)
+      prompt = input("What would you like? (espresso, latte, mocha) ").lower()
+  #Espresso 
+
+
+
+
+  elif prompt == 'espresso':
+      
+    if resources["water"] < MENU["espresso"]["ingredients"]["water"] and resources["coffee"] < MENU["espresso"]["ingredients"]["coffee"] and resources["milk"] < MENU["espresso"]["ingredients"]["water"]:
+      print("Not enough resources")
+      prompt = "off"
+
+
+
+
+    else:
+
+      print(f"espresso is {MENU['espresso']['cost']}")
+      tell_them_to_pay = print("Please insert coins ")
+      quarters = int(input("How many quarters? ")) * .25
+      nickles = int(input("How many nickles? ")) * .05
+      dimes = int(input("How many dimes? ")) * .10
+      pennies = int(input("How many pennies? ")) * .01
+      
+      total = quarters + nickles + dimes + pennies
+
+      if total > MENU['espresso']['cost']:
+          change = total - MENU['espresso']['cost']
+          print(f"enjoy your espresso. Your change is {change}")
+          resources["water"] -= MENU["espresso"]["ingredients"]["water"]
+          resources["coffee"] -= MENU["espresso"]["ingredients"]["coffee"]
+           
+          print(resources)
+          prompt = input("What would you like? (espresso, latte, mocha) ").lower()
+
+
+      elif total < MENU['espresso']['cost']:
+        money_owed = MENU['espresso']['cost'] - total
+        print(f"Not enough money. You still have to pay {money_owed}")
+        
+        
+      else:
+          print("Enjoy your Espresso. Payment made in full ")
+          resources["water"] -=  MENU["espresso"]["ingredients"]["water"]
+          resources["coffee"] -= MENU["espresso"]["ingredients"]["coffee"]
+          print(resources)
+          prompt = input("What would you like? (espresso, latte, mocha) ").lower()
+      
+
+  #Have to write code to deduct the resources from the MENU based off option selected
+
+    # resources["water"] = resources["water"] - MENU["espresso"]["ingredients"]["water"]
+    # print(resources["water"])
+
+
+
+  # Latte
+
+  elif prompt == 'latte':
+      if resources["water"] < MENU["latte"]["ingredients"]["water"] and resources["coffee"] < MENU["latte"]["ingredients"]["coffee"] and resources["milk"] < MENU["latte"]["ingredients"]["water"]:
+        print("Not enough resources")
+        break
+
+      else: 
+
+        print(f"latte is {MENU['latte']['cost']}")
+        tell_them_to_pay = print("Please insert coins ")
+        quarters = int(input("How many quarters? ")) * .25
+        nickles = int(input("How many nickles? ")) * .05
+        dimes = int(input("How many dimes? ")) * .10
+        pennies = int(input("How many pennies? ")) * .01
+        
+        total = quarters + nickles + dimes + pennies
+
+        if total > MENU['latte']['cost']:
+            change = total - MENU['latte']['cost']
+            print(f"enjoy your latte. Your change is {change}")
+
+            resources["water"] -=  MENU["latte"]["ingredients"]["water"]
+            resources["coffee"] -= MENU["latte"]["ingredients"]["coffee"]
+            resources["milk"] -=  MENU["latte"]["ingredients"]["milk"]
+            print(resources)
+            prompt = input("What would you like? (espresso, latte, mocha) ").lower()
+
+        elif total < MENU['latte']['cost']:
+          money_owed = MENU['latte']['cost'] - total
+          print(f"Not enough money. You still have to pay {money_owed}")
+
+        else:
+            print("Enjoy your Latte. Payment made in full ")
+            resources["water"] -= MENU["latte"]["ingredients"]["water"]
+            resources["coffee"] -= MENU["latte"]["ingredients"]["coffee"]
+            resources["milk"] -= MENU["latte"]["ingredients"]["milk"]
+            print(resources)
+            prompt = input("What would you like? (espresso, latte, mocha) ").lower()
+  #Have to write code to deduct the resources from the MENU based off option selected
+  #Will have to add an if statement which evaluates that there is enough resources available to make the beverage. 
+  #Will likely have to put that in the top. Even before the portion where the cost is provided
+
+  #Mocha
+
+  # Latte
+  elif prompt == 'mocha':
+      #If statement if enough resources are available.
+    if resources["water"] < MENU["mocha"]["ingredients"]["water"] and resources["coffee"] < MENU["espresso"]["ingredients"]["coffee"] and resources["milk"] < MENU["mocha"]["ingredients"]["water"]:
+      print("Not enough resources")
+
+    else:
+
+      print(f"Mocha is {MENU['mocha']['cost']}")
+      tell_them_to_pay = print("Please insert coins ")
+      quarters = int(input("How many quarters? ")) * .25
+      nickles = int(input("How many nickles? ")) * .05
+      dimes = int(input("How many dimes? ")) * .10
+      pennies = int(input("How many pennies? ")) * .01
+      
+      total = quarters + nickles + dimes + pennies
+
+      if total > MENU['mocha']['cost']:
+          change = total - MENU['mocha']['cost']
+          print(f"enjoy your mocha. Your change is {change}")
+
+          resources["water"] -= MENU["mocha"]["ingredients"]["water"]
+          resources["coffee"] -= MENU["mocha"]["ingredients"]["coffee"]
+          resources["milk"] -= MENU["mocha"]["ingredients"]["milk"]
+          print(resources)
+          prompt = input("What would you like? (espresso, latte, mocha) ").lower()
+
+
+      elif total < MENU['mocha']['cost']:
+        money_owed = MENU['mocha']['cost'] - total
+        print(f"Not enough money. You still have to pay {money_owed}")
+
+      else:
+          print("Enjoy your Mocha. Payment made in full ")
+          resources["water"] -= MENU["mocha"]["ingredients"]["water"]
+          resources["coffee"] -= MENU["mocha"]["ingredients"]["coffee"]
+          resources["milk"] -= MENU["mocha"]["ingredients"]["milk"]
+          print(resources)
+          prompt = input("What would you like? (espresso, latte, mocha) ").lower()
+      #Have to write code to deduct the resources from the MENU based off option selected
+
+  #off
+  elif prompt == "off":
+      os.system('cls') 
+      
+
+
+      
