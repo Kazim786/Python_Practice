@@ -532,7 +532,7 @@ while prompt != "off":
 
   elif prompt == 'espresso':
       
-    if resources["water"] < MENU["espresso"]["ingredients"]["water"] and resources["coffee"] < MENU["espresso"]["ingredients"]["coffee"] and resources["milk"] < MENU["espresso"]["ingredients"]["water"]:
+    if resources["water"] < MENU["espresso"]["ingredients"]["water"] or resources["coffee"] < MENU["espresso"]["ingredients"]["coffee"] or resources["milk"] < MENU["espresso"]["ingredients"]["water"]:
       print("Not enough resources")
       prompt = "off"
 
@@ -583,7 +583,7 @@ while prompt != "off":
   # Latte
 
   elif prompt == 'latte':
-      if resources["water"] < MENU["latte"]["ingredients"]["water"] and resources["coffee"] < MENU["latte"]["ingredients"]["coffee"] and resources["milk"] < MENU["latte"]["ingredients"]["water"]:
+      if resources["water"] <= MENU["latte"]["ingredients"]["water"] or resources["coffee"] <= MENU["latte"]["ingredients"]["coffee"] or resources["milk"] <= MENU["latte"]["ingredients"]["milk"]:
         print("Not enough resources")
         break
 
@@ -606,7 +606,8 @@ while prompt != "off":
             resources["coffee"] -= MENU["latte"]["ingredients"]["coffee"]
             resources["milk"] -=  MENU["latte"]["ingredients"]["milk"]
             print(resources)
-            prompt = input("What would you like? (espresso, latte, mocha) ").lower()
+            # prompt = input("What would you like? (espresso, latte, mocha) ").lower()
+            #Might have to readjust this because the prompt here when it triggers doesnt allow for the if statement above to check if there are sufficient resources
 
         elif total < MENU['latte']['cost']:
           money_owed = MENU['latte']['cost'] - total
@@ -618,18 +619,19 @@ while prompt != "off":
             resources["coffee"] -= MENU["latte"]["ingredients"]["coffee"]
             resources["milk"] -= MENU["latte"]["ingredients"]["milk"]
             print(resources)
-            prompt = input("What would you like? (espresso, latte, mocha) ").lower()
+            # prompt = input("What would you like? (espresso, latte, mocha) ").lower()
+      prompt = input("What would you like? (espresso, latte, mocha) ").lower()
+
   #Have to write code to deduct the resources from the MENU based off option selected
   #Will have to add an if statement which evaluates that there is enough resources available to make the beverage. 
   #Will likely have to put that in the top. Even before the portion where the cost is provided
 
-  #Mocha
-
-  # Latte
+  # mocha
   elif prompt == 'mocha':
       #If statement if enough resources are available.
-    if resources["water"] < MENU["mocha"]["ingredients"]["water"] and resources["coffee"] < MENU["espresso"]["ingredients"]["coffee"] and resources["milk"] < MENU["mocha"]["ingredients"]["water"]:
+    if resources["water"] <= MENU["mocha"]["ingredients"]["water"] or resources["coffee"] <= MENU["mocha"]["ingredients"]["coffee"] or resources["milk"] <= MENU["mocha"]["ingredients"]["milk"]:
       print("Not enough resources")
+      break
 
     else:
 
@@ -641,11 +643,11 @@ while prompt != "off":
       pennies = int(input("How many pennies? ")) * .01
       
       total = quarters + nickles + dimes + pennies
-
+  # if resources["water"] >= MENU["mocha"]["ingredients"]["water"] and resources["coffee"] >= MENU["mocha"]["ingredients"]["coffee"] and resources["milk"] >= MENU["mocha"]["ingredients"]["milk"]:
       if total > MENU['mocha']['cost']:
           change = total - MENU['mocha']['cost']
           print(f"enjoy your mocha. Your change is {change}")
-
+      
           resources["water"] -= MENU["mocha"]["ingredients"]["water"]
           resources["coffee"] -= MENU["mocha"]["ingredients"]["coffee"]
           resources["milk"] -= MENU["mocha"]["ingredients"]["milk"]
@@ -665,11 +667,15 @@ while prompt != "off":
           print(resources)
           prompt = input("What would you like? (espresso, latte, mocha) ").lower()
       #Have to write code to deduct the resources from the MENU based off option selected
-
+  else:
+    print("Not enough resources")
   #off
-  elif prompt == "off":
+  if prompt == "off":
       os.system('cls') 
       
 
 
-      
+
+
+
+#Latte   if resources["water"] >= MENU["mocha"]["ingredients"]["water"] and resources["coffee"] >= MENU["mocha"]["ingredients"]["coffee"] and resources["milk"] >= MENU["mocha"]["ingredients"]["milk"]:
