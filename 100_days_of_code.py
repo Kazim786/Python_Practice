@@ -532,9 +532,10 @@ while prompt != "off":
 
   elif prompt == 'espresso':
       
-    if resources["water"] < MENU["espresso"]["ingredients"]["water"] or resources["coffee"] < MENU["espresso"]["ingredients"]["coffee"] or resources["milk"] < MENU["espresso"]["ingredients"]["water"]:
+    if resources["water"] <= MENU["espresso"]["ingredients"]["water"] or resources["coffee"] <= MENU["espresso"]["ingredients"]["coffee"] or resources["milk"] <= MENU["espresso"]["ingredients"]["water"]:
       print("Not enough resources")
-      prompt = "off"
+      #prompt = "off"
+      break
 
 
 
