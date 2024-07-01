@@ -668,8 +668,8 @@ while prompt != "off":
           print(resources)
           prompt = input("What would you like? (espresso, latte, mocha) ").lower()
       #Have to write code to deduct the resources from the MENU based off option selected
-  else:
-    print("Not enough resources")
+  # else:
+  #   print("Not enough resources")
   #off
   if prompt == "off":
       os.system('cls') 
