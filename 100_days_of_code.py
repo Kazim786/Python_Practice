@@ -463,216 +463,212 @@
 
 
 
-#Day 16
-
-# class Coffee_options:
-#     def __init__(self, name):
-        
-#       self.name = name
-
-
-
-#Print report
-#Check if resources are sufficient
-#
-
-
-import os
+#Day 16 - intermediate
 
 
 
 
-MENU = {
-    "espresso": {
-        "ingredients": {
-            "water": 50,
-            "coffee": 18,
-        },
-        "cost": 1.5,
-    },
-    "latte": {
-        "ingredients": {
-            "water": 200,
-            "milk": 150,
-            "coffee": 24,
-        },
-        "cost": 2.5,
-    },
-    "mocha": {
-        "ingredients": {
-            "water": 250,
-            "milk": 100,
-            "coffee": 24,
-        },
-        "cost": 3.0,
-    }
-}
-
-resources = {
-    "water": 300,
-    "milk": 200,
-    "coffee": 100,
-}
-
-# TODO 1. Print report of all the coffee machine resources
+# #Print report
+# #Check if resources are sufficient
+# #
 
 
-prompt = input("What would you like? (espresso, latte, mocha) ").lower()
 
-while prompt != "off":
-
-
-  if prompt == 'report':
-      print(resources)
-      prompt = input("What would you like? (espresso, latte, mocha) ").lower()
-  #Espresso 
+# import os
 
 
 
 
-  elif prompt == 'espresso':
+# MENU = {
+#     "espresso": {
+#         "ingredients": {
+#             "water": 50,
+#             "coffee": 18,
+#         },
+#         "cost": 1.5,
+#     },
+#     "latte": {
+#         "ingredients": {
+#             "water": 200,
+#             "milk": 150,
+#             "coffee": 24,
+#         },
+#         "cost": 2.5,
+#     },
+#     "mocha": {
+#         "ingredients": {
+#             "water": 250,
+#             "milk": 100,
+#             "coffee": 24,
+#         },
+#         "cost": 3.0,
+#     }
+# }
+
+# resources = {
+#     "water": 300,
+#     "milk": 200,
+#     "coffee": 100,
+# }
+
+# # TODO 1. Print report of all the coffee machine resources
+
+
+# prompt = input("What would you like? (espresso, latte, mocha) ").lower()
+
+# while prompt != "off":
+
+
+#   if prompt == 'report':
+#       print(resources)
+#       prompt = input("What would you like? (espresso, latte, mocha) ").lower()
+ 
+
+
+
+
+# #Espresso 
+
+
+#   elif prompt == 'espresso':
       
-    if resources["water"] <= MENU["espresso"]["ingredients"]["water"] or resources["coffee"] <= MENU["espresso"]["ingredients"]["coffee"] or resources["milk"] <= MENU["espresso"]["ingredients"]["water"]:
-      print("Not enough resources")
-      #prompt = "off"
-      break
+#     if resources["water"] <= MENU["espresso"]["ingredients"]["water"] or resources["coffee"] <= MENU["espresso"]["ingredients"]["coffee"] or resources["milk"] <= MENU["espresso"]["ingredients"]["water"]:
+#       print("Not enough resources")
+#       #prompt = "off"
+#       break
 
 
 
 
-    else:
+#     else:
 
-      print(f"espresso is {MENU['espresso']['cost']}")
-      tell_them_to_pay = print("Please insert coins ")
-      quarters = int(input("How many quarters? ")) * .25
-      nickles = int(input("How many nickles? ")) * .05
-      dimes = int(input("How many dimes? ")) * .10
-      pennies = int(input("How many pennies? ")) * .01
+#       print(f"espresso is {MENU['espresso']['cost']}")
+#       tell_them_to_pay = print("Please insert coins ")
+#       quarters = int(input("How many quarters? ")) * .25
+#       nickles = int(input("How many nickles? ")) * .05
+#       dimes = int(input("How many dimes? ")) * .10
+#       pennies = int(input("How many pennies? ")) * .01
       
-      total = quarters + nickles + dimes + pennies
+#       total = quarters + nickles + dimes + pennies
 
-      if total > MENU['espresso']['cost']:
-          change = total - MENU['espresso']['cost']
-          print(f"enjoy your espresso. Your change is {change}")
-          resources["water"] -= MENU["espresso"]["ingredients"]["water"]
-          resources["coffee"] -= MENU["espresso"]["ingredients"]["coffee"]
+#       if total > MENU['espresso']['cost']:
+#           change = total - MENU['espresso']['cost']
+#           print(f"enjoy your espresso. Your change is {change}")
+#           resources["water"] -= MENU["espresso"]["ingredients"]["water"]
+#           resources["coffee"] -= MENU["espresso"]["ingredients"]["coffee"]
            
-          print(resources)
-          prompt = input("What would you like? (espresso, latte, mocha) ").lower()
+#           print(resources)
+#           prompt = input("What would you like? (espresso, latte, mocha) ").lower()
 
 
-      elif total < MENU['espresso']['cost']:
-        money_owed = MENU['espresso']['cost'] - total
-        print(f"Not enough money. You still have to pay {money_owed}")
+#       elif total < MENU['espresso']['cost']:
+#         money_owed = MENU['espresso']['cost'] - total
+#         print(f"Not enough money. You still have to pay {money_owed}")
         
         
-      else:
-          print("Enjoy your Espresso. Payment made in full ")
-          resources["water"] -=  MENU["espresso"]["ingredients"]["water"]
-          resources["coffee"] -= MENU["espresso"]["ingredients"]["coffee"]
-          print(resources)
-          prompt = input("What would you like? (espresso, latte, mocha) ").lower()
+#       else:
+#           print("Enjoy your Espresso. Payment made in full ")
+#           resources["water"] -=  MENU["espresso"]["ingredients"]["water"]
+#           resources["coffee"] -= MENU["espresso"]["ingredients"]["coffee"]
+#           print(resources)
+#           prompt = input("What would you like? (espresso, latte, mocha) ").lower()
       
 
-  #Have to write code to deduct the resources from the MENU based off option selected
+#   #Have to write code to deduct the resources from the MENU based off option selected
 
-    # resources["water"] = resources["water"] - MENU["espresso"]["ingredients"]["water"]
-    # print(resources["water"])
-
+  
 
 
-  # Latte
 
-  elif prompt == 'latte':
-      if resources["water"] <= MENU["latte"]["ingredients"]["water"] or resources["coffee"] <= MENU["latte"]["ingredients"]["coffee"] or resources["milk"] <= MENU["latte"]["ingredients"]["milk"]:
-        print("Not enough resources")
-        break
+#   # Latte
 
-      else: 
+#   elif prompt == 'latte':
+#       if resources["water"] <= MENU["latte"]["ingredients"]["water"] or resources["coffee"] <= MENU["latte"]["ingredients"]["coffee"] or resources["milk"] <= MENU["latte"]["ingredients"]["milk"]:
+#         print("Not enough resources")
+#         break
 
-        print(f"latte is {MENU['latte']['cost']}")
-        tell_them_to_pay = print("Please insert coins ")
-        quarters = int(input("How many quarters? ")) * .25
-        nickles = int(input("How many nickles? ")) * .05
-        dimes = int(input("How many dimes? ")) * .10
-        pennies = int(input("How many pennies? ")) * .01
+#       else: 
+
+#         print(f"latte is {MENU['latte']['cost']}")
+#         tell_them_to_pay = print("Please insert coins ")
+#         quarters = int(input("How many quarters? ")) * .25
+#         nickles = int(input("How many nickles? ")) * .05
+#         dimes = int(input("How many dimes? ")) * .10
+#         pennies = int(input("How many pennies? ")) * .01
         
-        total = quarters + nickles + dimes + pennies
+#         total = quarters + nickles + dimes + pennies
 
-        if total > MENU['latte']['cost']:
-            change = total - MENU['latte']['cost']
-            print(f"enjoy your latte. Your change is {change}")
+#         if total > MENU['latte']['cost']:
+#             change = total - MENU['latte']['cost']
+#             print(f"enjoy your latte. Your change is {change}")
 
-            resources["water"] -=  MENU["latte"]["ingredients"]["water"]
-            resources["coffee"] -= MENU["latte"]["ingredients"]["coffee"]
-            resources["milk"] -=  MENU["latte"]["ingredients"]["milk"]
-            print(resources)
-            # prompt = input("What would you like? (espresso, latte, mocha) ").lower()
-            #Might have to readjust this because the prompt here when it triggers doesnt allow for the if statement above to check if there are sufficient resources
+#             resources["water"] -=  MENU["latte"]["ingredients"]["water"]
+#             resources["coffee"] -= MENU["latte"]["ingredients"]["coffee"]
+#             resources["milk"] -=  MENU["latte"]["ingredients"]["milk"]
+#             print(resources)
+#             # prompt = input("What would you like? (espresso, latte, mocha) ").lower()
+#             #Might have to readjust this because the prompt here when it triggers doesnt allow for the if statement above to check if there are sufficient resources
 
-        elif total < MENU['latte']['cost']:
-          money_owed = MENU['latte']['cost'] - total
-          print(f"Not enough money. You still have to pay {money_owed}")
+#         elif total < MENU['latte']['cost']:
+#           money_owed = MENU['latte']['cost'] - total
+#           print(f"Not enough money. You still have to pay {money_owed}")
 
-        else:
-            print("Enjoy your Latte. Payment made in full ")
-            resources["water"] -= MENU["latte"]["ingredients"]["water"]
-            resources["coffee"] -= MENU["latte"]["ingredients"]["coffee"]
-            resources["milk"] -= MENU["latte"]["ingredients"]["milk"]
-            print(resources)
-            # prompt = input("What would you like? (espresso, latte, mocha) ").lower()
-      prompt = input("What would you like? (espresso, latte, mocha) ").lower()
+#         else:
+#             print("Enjoy your Latte. Payment made in full ")
+#             resources["water"] -= MENU["latte"]["ingredients"]["water"]
+#             resources["coffee"] -= MENU["latte"]["ingredients"]["coffee"]
+#             resources["milk"] -= MENU["latte"]["ingredients"]["milk"]
+#             print(resources)
+#             # prompt = input("What would you like? (espresso, latte, mocha) ").lower()
+#       prompt = input("What would you like? (espresso, latte, mocha) ").lower()
 
-  #Have to write code to deduct the resources from the MENU based off option selected
-  #Will have to add an if statement which evaluates that there is enough resources available to make the beverage. 
-  #Will likely have to put that in the top. Even before the portion where the cost is provided
+#   #Have to write code to deduct the resources from the MENU based off option selected
+#   #Will have to add an if statement which evaluates that there is enough resources available to make the beverage. 
+#   #Will likely have to put that in the top. Even before the portion where the cost is provided
 
-  # mocha
-  elif prompt == 'mocha':
-      #If statement if enough resources are available.
-    if resources["water"] <= MENU["mocha"]["ingredients"]["water"] or resources["coffee"] <= MENU["mocha"]["ingredients"]["coffee"] or resources["milk"] <= MENU["mocha"]["ingredients"]["milk"]:
-      print("Not enough resources")
-      break
+#   # mocha
+#   elif prompt == 'mocha':
+#       #If statement if enough resources are available.
+#     if resources["water"] <= MENU["mocha"]["ingredients"]["water"] or resources["coffee"] <= MENU["mocha"]["ingredients"]["coffee"] or resources["milk"] <= MENU["mocha"]["ingredients"]["milk"]:
+#       print("Not enough resources")
+#       break
 
-    else:
+#     else:
 
-      print(f"Mocha is {MENU['mocha']['cost']}")
-      tell_them_to_pay = print("Please insert coins ")
-      quarters = int(input("How many quarters? ")) * .25
-      nickles = int(input("How many nickles? ")) * .05
-      dimes = int(input("How many dimes? ")) * .10
-      pennies = int(input("How many pennies? ")) * .01
+#       print(f"Mocha is {MENU['mocha']['cost']}")
+#       tell_them_to_pay = print("Please insert coins ")
+#       quarters = int(input("How many quarters? ")) * .25
+#       nickles = int(input("How many nickles? ")) * .05
+#       dimes = int(input("How many dimes? ")) * .10
+#       pennies = int(input("How many pennies? ")) * .01
       
-      total = quarters + nickles + dimes + pennies
-  # if resources["water"] >= MENU["mocha"]["ingredients"]["water"] and resources["coffee"] >= MENU["mocha"]["ingredients"]["coffee"] and resources["milk"] >= MENU["mocha"]["ingredients"]["milk"]:
-      if total > MENU['mocha']['cost']:
-          change = total - MENU['mocha']['cost']
-          print(f"enjoy your mocha. Your change is {change}")
+#       total = quarters + nickles + dimes + pennies
+#       if total > MENU['mocha']['cost']:
+#           change = total - MENU['mocha']['cost']
+#           print(f"enjoy your mocha. Your change is {change}")
       
-          resources["water"] -= MENU["mocha"]["ingredients"]["water"]
-          resources["coffee"] -= MENU["mocha"]["ingredients"]["coffee"]
-          resources["milk"] -= MENU["mocha"]["ingredients"]["milk"]
-          print(resources)
-          prompt = input("What would you like? (espresso, latte, mocha) ").lower()
+#           resources["water"] -= MENU["mocha"]["ingredients"]["water"]
+#           resources["coffee"] -= MENU["mocha"]["ingredients"]["coffee"]
+#           resources["milk"] -= MENU["mocha"]["ingredients"]["milk"]
+#           print(resources)
+#           prompt = input("What would you like? (espresso, latte, mocha) ").lower()
 
 
-      elif total < MENU['mocha']['cost']:
-        money_owed = MENU['mocha']['cost'] - total
-        print(f"Not enough money. You still have to pay {money_owed}")
+#       elif total < MENU['mocha']['cost']:
+#         money_owed = MENU['mocha']['cost'] - total
+#         print(f"Not enough money. You still have to pay {money_owed}")
 
-      else:
-          print("Enjoy your Mocha. Payment made in full ")
-          resources["water"] -= MENU["mocha"]["ingredients"]["water"]
-          resources["coffee"] -= MENU["mocha"]["ingredients"]["coffee"]
-          resources["milk"] -= MENU["mocha"]["ingredients"]["milk"]
-          print(resources)
-          prompt = input("What would you like? (espresso, latte, mocha) ").lower()
-      #Have to write code to deduct the resources from the MENU based off option selected
-  # else:
-  #   print("Not enough resources")
-  #off
-  if prompt == "off":
-      os.system('cls') 
+#       else:
+#           print("Enjoy your Mocha. Payment made in full ")
+#           resources["water"] -= MENU["mocha"]["ingredients"]["water"]
+#           resources["coffee"] -= MENU["mocha"]["ingredients"]["coffee"]
+#           resources["milk"] -= MENU["mocha"]["ingredients"]["milk"]
+#           print(resources)
+#           prompt = input("What would you like? (espresso, latte, mocha) ").lower()
+#       #Have to write code to deduct the resources from the MENU based off option selected
+#   #off
+#   if prompt == "off":
+#       os.system('cls') 
       
 
 
@@ -680,3 +676,244 @@ while prompt != "off":
 
 
 #Latte   if resources["water"] >= MENU["mocha"]["ingredients"]["water"] and resources["coffee"] >= MENU["mocha"]["ingredients"]["coffee"] and resources["milk"] >= MENU["mocha"]["ingredients"]["milk"]:
+
+
+
+
+#DAY 17 - intermediate Building Coffee machine in OOP
+
+# import sys
+# print(sys.path)
+
+
+
+# from menu import Menu, MenuItem # type: ignore
+# from Coffee_maker import CoffeeMaker # type: ignore
+# from money_machine import MoneyMachine # type: ignore
+
+import os
+
+from menu import Menu, MenuItem
+from Coffee_maker import CoffeeMaker
+from money_machine import MoneyMachine
+
+
+# menu = Menu()
+
+# print(menu.get_items())
+
+# espresso = menu.find_drink("espresso")
+
+
+
+# print(espresso.ingredients)
+
+
+# a_report = MoneyMachine() #a_report is an object of money machine. So it has access to all of its attributes now
+
+
+
+# print(a_report.report()) #Money Machine
+
+# coffee_report = CoffeeMaker()
+
+# print(f"Coffee Maker report: {coffee_report.report()}")
+
+# # enough_resources = CoffeeMaker()
+
+# # print(type(enough_resources))
+
+# # print(enough_resources.is_resource_sufficient("espresso"))
+
+
+#beginning of my code:
+
+coffee_machine = "on"
+
+
+items = Menu()
+# print(items.get_items()[1]) #This works. But it only returns
+
+
+#------
+
+#Notes: 
+
+# print(items.menu)
+
+# for item in items.menu:
+#     print(f"{item.name}: {item.cost}")
+# Since Menu holds a list of MenuItem instances, you can iterate over them to perform operations or display them
+
+#------
+
+
+#First attempt
+
+# prompt = input("What would you like? latte/espresso/cappuccino ")
+
+# menu = Menu()
+
+# make_payment = MoneyMachine()
+
+# cost = Menu()
+
+# #print(cost.menu) #might put this inside the params of make_payment.make_payment(). Just have to understand how to derive the cost of the correct beverage 
+# #Likely also going to have to use get_items() from menu.py
+
+# deduct_resources = CoffeeMaker()
+
+# sufficient_resources = CoffeeMaker()
+
+# #sufficient_resources.is_resource_sufficient(prompt)
+
+# # deduct_resources.make_coffee(prompt)
+
+# items = Menu()
+# # print(items.get_items())
+
+# while coffee_machine == "on":
+#     if prompt == "report":
+#         report = CoffeeMaker()
+#         print(report.report())
+#         prompt = input("What would you like? latte/espresso/cappuccino ")
+
+#     elif menu.find_drink(prompt):
+#         print(f"Testing if it works")
+#         #going to have to use money machine's make payment and process coins.
+#         for item in items.menu:
+#             #Add an if statement here that nests the if statement below. 
+#             # It should be a conditional which includes deduct_resourcees.make_coffee(prompt) 
+#             # along with is_resources_sufficient()
+#             if prompt == item.name:
+#                 if sufficient_resources.is_resource_sufficient(prompt) and make_payment.make_payment(item.cost):
+#                     #if prompt == item.name:
+#                         print(f"{item.name}: {item.cost}")
+#                         # make_payment.make_payment(item.cost)
+
+#                         #Money portion works. Now gotta do something to deduct resources. Gotta use the make_coffee() function from Coffee_maker
+#                         deduct_resources.make_coffee(prompt) 
+#                         #This hits an error from the Coffee_maker file itself. 
+#                         # But Angela's code doesnt hit. Also going to have to use the is_resource_sufficient() class as well
+
+#                         prompt = input("What would you like? latte/espresso/cappuccino ")
+                         
+
+
+
+
+#         # Along with Coffee_maker's make_coffee() to deduct from resources
+        
+        
+
+#     elif prompt == "off":
+#         coffee_machine = "off"
+#         os.system('cls')
+
+     
+
+
+
+
+# second attempt
+
+
+prompt = input("What would you like? latte/espresso/cappuccino ")
+
+menu = Menu()
+
+make_payment = MoneyMachine()
+
+cost = Menu()
+
+#print(cost.menu) #might put this inside the params of make_payment.make_payment(). Just have to understand how to derive the cost of the correct beverage 
+#Likely also going to have to use get_items() from menu.py
+
+deduct_resources = CoffeeMaker()
+
+sufficient_resources = CoffeeMaker()
+
+#sufficient_resources.is_resource_sufficient(prompt)
+
+# deduct_resources.make_coffee(prompt)
+
+items = Menu()
+# print(items.get_items())
+
+drink = menu.find_drink(prompt)
+
+while coffee_machine == "on":
+    if prompt == "report":
+        report = CoffeeMaker()
+        print(report.report())
+        prompt = input("What would you like? latte/espresso/cappuccino ")
+
+    elif menu.find_drink(prompt):
+        print(f"Testing if it works")
+        #going to have to use money machine's make payment and process coins.
+        if sufficient_resources.is_resource_sufficient(drink):
+
+            for item in items.menu:
+                #Add an if statement here that nests the if statement below. 
+                # It should be a conditional which includes deduct_resourcees.make_coffee(prompt) 
+                # along with is_resources_sufficient()
+                if prompt == item.name:
+                        if make_payment.make_payment(item.cost):
+                                print(f"{item.name}: {item.cost}")
+                                make_payment.make_payment(item.cost)
+
+                                #Money portion works. Now gotta do something to deduct resources. Gotta use the make_coffee() function from Coffee_maker
+                                #deduct_resources.make_coffee(prompt) 
+                                #This hits an error from the Coffee_maker file itself. 
+                                # But Angela's code doesnt hit. Also going to have to use the is_resource_sufficient() class as well
+                                deduct_resources.make_coffee(drink)
+                                prompt = input("What would you like? latte/espresso/cappuccino ")
+                                drink = menu.find_drink(prompt)
+                                    
+
+
+        # Along with Coffee_maker's make_coffee() to deduct from resources
+        
+        
+
+    elif prompt == "off":
+        coffee_machine = "off"
+        os.system('cls')
+
+     
+#it keeps outputting latte, it also gives the drink even if the money is not enough. Resources also dont deduct
+
+
+#---
+
+
+
+
+
+
+
+
+
+
+    #Angela's solution below:
+
+
+    # money_machine = MoneyMachine()
+    # coffee_maker = CoffeeMaker()
+    # menu = Menu()
+
+    # is_on = True
+
+    # while is_on:
+    #     options = menu.get_items()
+    #     choice = input(f"What would you like? ({options}): ")
+    #     if choice == "off":
+    #         is_on = False
+    #     elif choice == "report":
+    #         coffee_maker.report()
+    #         money_machine.report()
+    #     else:
+    #         drink = menu.find_drink(choice)
+            
+    #         if coffee_maker.is_resource_sufficient(drink) and money_machine.make_payment(drink.cost):
+    #           coffee_maker.make_coffee(drink)
